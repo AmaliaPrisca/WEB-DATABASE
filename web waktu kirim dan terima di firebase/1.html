@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Sensor Realtime</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container" id="container">
+    <h2>Data Sensor Realtime</h2>
+
+    <div class="button-group">
+      <button onclick="toggleDarkMode()">🌙/☀ Mode</button>
+      <button onclick="exportTableToCSV()">⬇ Export CSV</button>
+    </div>
+
+    <div class="filter-group">
+      <label for="dateFilter">Filter tanggal:</label>
+      <input type="date" id="dateFilter"/>
+      <button onclick="filterByDate()">🔍</button>
+      <button onclick="resetFilter()">🔄</button>
+    </div>
+
+    <div class="table-wrapper">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>Humidity</th>
+            <th>Humidity (%)</th>
+            <th>Temperature (°C)</th>
+            <th>Water Level</th>
+            <th>Water Level (%)</th>
+            <th>Waktu Terima</th>
+            <th>Waktu Kirim</th>
+            <th>Delay (ms)</th>
+          </tr>
+        </thead>
+        <tbody id="sensorData"></tbody>
+      </table>
+    </div>
+
+    <p><strong>Total data masuk:</strong> <span id="totalData">0</span></p>
+
+    <canvas id="chartTemperature" height="100"></canvas>
+  </div>
+
+  <!-- Firebase & Chart.js -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="tampilan.js"></script>
+</body>
+</html>
